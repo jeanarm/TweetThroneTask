@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head> 
+<meta charset="UTF-8"></head>
+<title> Welcome to my TweetTrone</title>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <ul class="nav-item">
+            <li class="item"><%= link_to "Home", chats_path %></li>
+                <li class="item"><%= link_to "New Tweet", new_chat_path %></li>
+                
+            </ul>
+        </nav>
+        <header>
+<div class="container">
+
+<h1> chat now</h1>
+
+<%= form_with(model: @chats, url: confirm_chats_path, local: true) do |f| %>
+    <% if @chats.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @chats.errors.count %>errors occurred.</h2>
+      <ul>
+
+      <% @chats.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+    <div>
+    <%= f.label :username %>
+    <%= f.text_field :username %>
+    </div>
+    <div>
+    <%= f.label :mail%>
+    <%= f.text_area :mail %>
+    </div>
+
+<%= f.submit 'Post' %>
+</div>
+    
+    <% end %>
+    </div>
+<footer class="footer">
+        <p class="foot-content"> <i>Copyright &copy; 2019 Armel NIZIGIYIMANA</i></p>
+
+    </footer>
+
+
+</body>
+</html>

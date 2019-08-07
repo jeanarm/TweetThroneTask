@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head> 
+<meta charset="UTF-8"></head>
+<title> Welcome to my TweetTrone</title>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <ul class="nav-item">
+                <li class="item"><%= link_to "Home", chats_path %></li>
+                <li class="item"><%= link_to "New Tweet", new_chat_path %></li>
+                
+            </ul>
+        </nav>
+        <header>
+<div class="container">
+<h1>Chats</h1>
+
+<% @chats.each do |chat| %>
+  <p class="username"><%= chat.username %>: </p>  
+  <p> =><%= chat.mail %> </p>
+  <p>   created on: <%= chat.created_at %> </p>
+  <p>  updated on: <%= chat.updated_at %> </p>
+    <%= link_to "New", new_chat_path %>
+    
+    <%= link_to "Edit", edit_chat_path(chat) %>
+
+   
+     <%= link_to "Delete", chat, method: :delete, data: { confirm: "Are you sure you want to delete this this chat?"} %>
+<p class="mail"></p>
+<% end %>
+
+</div>
+<footer class="footer">
+        <p class="foot-content"> <i>Copyright &copy; 2019 Armel NIZIGIYIMANA</i></p>
+
+    </footer>
+
+
+</body>
+</html>
